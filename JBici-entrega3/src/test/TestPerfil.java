@@ -9,6 +9,7 @@ import dao.FactoryDAO;
 public class TestPerfil {
 	@Test
 	public void testCRUD() throws Exception {
+		
 		Perfil perfil1 = new Perfil();
 		perfil1.setDescripcion("administrador");
 		FactoryDAO.getPerfilDAO().persistir(perfil1);
