@@ -4,13 +4,14 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Usuario {
-	@Id
+	@Id @GeneratedValue
 	private long id;	
 	private String apellido;	
 	private String nombre;

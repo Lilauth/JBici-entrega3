@@ -15,8 +15,8 @@ public class TestUsuario {
 	@Test
 	public void testCRUD() throws Exception {
 		Usuario user1 = new Usuario();
-		Perfil perfil1 = new Perfil();
-		perfil1.setDescripcion("administrador");
+		Perfil perfil1 = FactoryDAO.getPerfilDAO().buscaPorID(1);
+		//user1.setId(1);
 		user1.setPerfil(perfil1);
 		user1.setApellido("Gonzalez");
 		user1.setDni("00000000");

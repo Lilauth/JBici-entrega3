@@ -39,6 +39,7 @@ public class BaseDAOImpl<T> implements IBaseDAO<T> {
 		try {
 			em.getTransaction().begin();
 			em.persist(obj);
+			em.flush();
 			em.getTransaction().commit();		
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
