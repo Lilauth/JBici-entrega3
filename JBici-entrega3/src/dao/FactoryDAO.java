@@ -10,8 +10,8 @@ public class FactoryDAO {
 		return new BaseDAOImpl<Perfil>(Perfil.class, Conexion.getEntityManager());
 	}
 	
-	public static IBaseDAO<Usuario> getUsuarioDAO() {
-		return new BaseDAOImpl<Usuario>(Usuario.class, Conexion.getEntityManager());
+	public static IUsuarioDAO getUsuarioDAO() {
+		return new UsuarioDAOImpl(Usuario.class, Conexion.getEntityManager());
 	}
 
 }

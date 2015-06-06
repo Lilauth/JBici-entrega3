@@ -22,13 +22,14 @@ public class TestUsuario {
 		user1.setDni("00000000");
 		user1.setNombre("Ezequiel");
 		user1.setDomicilio("un domicilio");
+		user1.setEmail("gonzales@hotmail.com");
 		user1.setFechaNacimiento(new Date());
 		user1.setPerfil(perfil1);
 		user1.setSexo('M');
 		//lo guarda en la base de datos
 		FactoryDAO.getUsuarioDAO().persistir(user1);
 		//lo recupera
-		assertEquals("Gonzalez", FactoryDAO.getUsuarioDAO().buscaPorID(1).getApellido());
+		assertEquals("Gonzalez", FactoryDAO.getUsuarioDAO().buscarPorEMail("gonzales@hotmail.com").getApellido());
 	}
 
 }
