@@ -6,7 +6,8 @@
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>	
 	
 	<class>model.Perfil</class>
-	<class>model.Usuario</class>	
+	<class>model.Usuario</class>
+	<class>model.EstadoEstacion</class>	
 	
 	<properties>
 		<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />

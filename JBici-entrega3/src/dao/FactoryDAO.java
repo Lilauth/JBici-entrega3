@@ -1,5 +1,6 @@
 package dao;
 
+import model.EstadoEstacion;
 import model.Perfil;
 import model.Usuario;
 import connection.Conexion;
@@ -12,6 +13,10 @@ public class FactoryDAO {
 	
 	public static IUsuarioDAO getUsuarioDAO() {
 		return new UsuarioDAOImpl(Usuario.class, Conexion.getEntityManager());
+	}
+	
+	public static IBaseDAO<EstadoEstacion> getEstadoEstacionDAO(){
+		return new BaseDAOImpl<EstadoEstacion>(EstadoEstacion.class, Conexion.getEntityManager());	
 	}
 
 }

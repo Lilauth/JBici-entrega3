@@ -85,5 +85,13 @@ public class BaseDAOImpl<T> implements IBaseDAO<T> {
 		
 	}
 	
+	@Override
+	public long contarElementos(){
+		CriteriaBuilder cbuilder = em.getCriteriaBuilder();
+		CriteriaQuery<Long> cquery = cbuilder.createQuery(Long.class);
+		cquery.select(cbuilder.count(cquery.from(clase)));
+		return em.createQuery(cquery).getSingleResult().intValue();
+		
+	}
 
 }

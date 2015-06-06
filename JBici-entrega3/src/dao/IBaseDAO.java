@@ -15,5 +15,7 @@ public interface IBaseDAO<T> {
 	 void borrar(T obj);
 
 	 void borrarTodos();
+	 
+	 long contarElementos();
 
 }
