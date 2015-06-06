@@ -1,5 +1,6 @@
 package dao;
 
+import model.EstadoBicicleta;
 import model.EstadoEstacion;
 import model.Perfil;
 import model.Usuario;
@@ -17,6 +18,10 @@ public class FactoryDAO {
 	
 	public static IBaseDAO<EstadoEstacion> getEstadoEstacionDAO(){
 		return new BaseDAOImpl<EstadoEstacion>(EstadoEstacion.class, Conexion.getEntityManager());	
+	}
+	
+	public static IBaseDAO<EstadoBicicleta> getEstadoBicicletaDAO(){
+		return new BaseDAOImpl<EstadoBicicleta>(EstadoBicicleta.class, Conexion.getEntityManager());
 	}
 
 }

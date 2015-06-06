@@ -7,7 +7,8 @@
 	
 	<class>model.Perfil</class>
 	<class>model.Usuario</class>
-	<class>model.EstadoEstacion</class>	
+	<class>model.EstadoEstacion</class>
+	<class>model.EstadoBicicleta</class>	
 	
 	<properties>
 		<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
