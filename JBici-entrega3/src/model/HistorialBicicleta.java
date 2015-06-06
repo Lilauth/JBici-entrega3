@@ -3,6 +3,7 @@ package model;
 import java.util.Date;
 
 public class HistorialBicicleta {
+	
 	private EstadoBicicleta estado;
 	private Date fechaYHora;
 	private Estacion estacion;

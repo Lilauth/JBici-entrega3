@@ -2,40 +2,49 @@ package model;
 
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Estacion {
 	
-	private class Ubicacion{
-		private float latitud;
-		private float longitud;
-		
-		public Ubicacion(float lat, float longitud){
-			this.latitud = lat;
-			this.longitud = longitud;
-		}
-		
-		public float getLatitud() {
-			return latitud;
-		}
-		
-		public float getLongitud() {
-			return longitud;
-		}		
-		
-	}
-	
+	@Id @GeneratedValue
+	private long id;	
 	private String nombre;
-	private Ubicacion ubicacion;
+	
+	@ManyToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "idEstadoEstacion")
 	private EstadoEstacion estado;
 	private int cantBiciletas;
 	private int cantEstacionamientos;
-	private ArrayList<Bicicleta> bicisDisponibles;
+	/*@OneToMany
+	private ArrayList<Bicicleta> bicisDisponibles;*/
+	private double latitud;
+	private double longitud;
 	
+	//constructor vacío hibernate
+	public Estacion(){}
+	
+	public void setId(long id){
+		this.id = id;
+	}
+	
+	public long getId(){
+		return this.id;
+	}
+	/*
 	public ArrayList<Bicicleta> getBicisDisponibles() {
 		return bicisDisponibles;
 	}
 	public void setBicisDisponibles(ArrayList<Bicicleta> bicisDisponibles) {
 		this.bicisDisponibles = bicisDisponibles;
-	}
+	}*/
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -43,15 +52,16 @@ public class Estacion {
 		this.nombre = nombre;
 	}
 	
-	public ArrayList<Float> getUbicacion(){
-		ArrayList<Float> ubic = new ArrayList<Float>();
-		ubic.add(this.ubicacion.getLatitud());
-		ubic.add(this.ubicacion.getLongitud());
+	public ArrayList<Double> getUbicacion(){
+		ArrayList<Double> ubic = new ArrayList<Double>();
+		ubic.add((Double)this.latitud);
+		ubic.add((Double)this.longitud);
 		return ubic;
 	}
 	
-	public void setUbicacion(float latitud, float longitud) {
-		this.ubicacion = new Ubicacion(latitud, longitud);
+	public void setUbicacion(double latitud, double longitud) {
+		this.latitud = latitud;
+		this.longitud = longitud;
 	}
 	public EstadoEstacion getEstado() {
 		return estado;

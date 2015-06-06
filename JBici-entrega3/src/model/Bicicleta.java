@@ -3,6 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Bicicleta {
 	
 	private Date fechaIngreso;
