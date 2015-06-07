@@ -1,36 +1,49 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Bicicleta {
+	@Id @GeneratedValue
+	private long id;
 	
 	private Date fechaIngreso;
 	private String patente;
+	@ManyToOne(optional = false)
+	@JoinColumn(name="idEstacion")
 	private Estacion ubicacionActual;
-	private PrestamoActual prestamoActual;
+	
+	/**private PrestamoActual prestamoActual;*/
+	/**
 	private ArrayList<PrestamoHistorico> prestamosHistoricos;
-	private ArrayList<HistorialBicicleta> historial;	
+	private ArrayList<HistorialBicicleta> historial;*/
+	
+	@ManyToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "idEstadoBicicleta")
 	private EstadoBicicleta estadoActual;
 	
 	/*getters and setters*/
-	public ArrayList<HistorialBicicleta> getHistorial() {
+	/**public ArrayList<HistorialBicicleta> getHistorial() {
 		return historial;
 	}
 	public void agregarHistorial(HistorialBicicleta historial) {
 		this.historial.add(historial);
 	}
-
 	
 	public PrestamoActual getPrestamoActual() {
 		return prestamoActual;
 	}
 	public void setPrestamoActual(PrestamoActual prestamoActual) {
 		this.prestamoActual = prestamoActual;
-	}
+	}*/
+	
 	public EstadoBicicleta getEstadoActual() {
 		return estadoActual;
 	}
@@ -58,11 +71,11 @@ public class Bicicleta {
 	
 	/*comportamiento*/	
 	public void devolver(){
-		PrestamoHistorico archivar = new PrestamoHistorico();
-		archivar.asignar(this.prestamoActual);
+		//PrestamoHistorico archivar = new PrestamoHistorico();
+		//archivar.asignar(this.prestamoActual);
 		//setea fecha y hora devolucion, setea estacion de retorno
-		this.prestamosHistoricos.add(archivar);		
-		this.prestamoActual = null;
+		//this.prestamosHistoricos.add(archivar);		
+		//this.prestamoActual = null;
 	}
     
 }

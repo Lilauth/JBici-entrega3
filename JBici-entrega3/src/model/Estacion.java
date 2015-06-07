@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
 
 @Entity
 public class Estacion {
@@ -22,8 +24,8 @@ public class Estacion {
 	private EstadoEstacion estado;
 	private int cantBiciletas;
 	private int cantEstacionamientos;
-	/*@OneToMany
-	private ArrayList<Bicicleta> bicisDisponibles;*/
+	@OneToMany(mappedBy="ubicacionActual")
+	private List<Bicicleta> bicisDisponibles;
 	private double latitud;
 	private double longitud;
 	
@@ -37,13 +39,13 @@ public class Estacion {
 	public long getId(){
 		return this.id;
 	}
-	/*
-	public ArrayList<Bicicleta> getBicisDisponibles() {
+	
+    public List<Bicicleta> getBicisDisponibles() {
 		return bicisDisponibles;
 	}
-	public void setBicisDisponibles(ArrayList<Bicicleta> bicisDisponibles) {
+	public void setBicisDisponibles(List<Bicicleta> bicisDisponibles) {
 		this.bicisDisponibles = bicisDisponibles;
-	}*/
+	}
 	
 	public String getNombre() {
 		return nombre;
