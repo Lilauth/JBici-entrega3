@@ -2,6 +2,7 @@ package test;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import model.Bicicleta;
@@ -13,7 +14,7 @@ import org.junit.Test;
 
 import dao.FactoryDAO;
 
-public class TestEstacionBicicleta {
+public class TestEstacionyBicicleta {
 	
 	@Test
 	public void testCRUD() throws Exception {
@@ -34,6 +35,10 @@ public class TestEstacionBicicleta {
 		EstadoBicicleta estadoBici = FactoryDAO.getEstadoBicicletaDAO().buscaPorID(1); //operativa
 		bici.setEstadoActual(estadoBici);
 		bici.setUbicacionActual(est);
+		
+		ArrayList<Bicicleta> lista = new ArrayList<Bicicleta>();
+		lista.add(bici);
+		est.setBicisDisponibles(lista);
 		FactoryDAO.getBicicletaDAO().persistir(bici);
 		
 		assertEquals(1, FactoryDAO.getEstacionDAO().contarElementos());
