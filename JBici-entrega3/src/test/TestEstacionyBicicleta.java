@@ -7,7 +7,6 @@ import java.util.Date;
 
 import model.Bicicleta;
 import model.Estacion;
-import model.EstadoEstacion;
 
 import org.junit.Test;
 
@@ -16,12 +15,10 @@ import dao.FactoryDAO;
 public class TestEstacionyBicicleta {
 	
 	@Test
-	public void testCRUD() throws Exception {
-		EstadoEstacion estado = FactoryDAO.getEstadoEstacionDAO().buscaPorID(1);
-		
+	public void testCRUD() throws Exception {				
 		Estacion est = new Estacion();
 		est.setNombre("Plaza Islas Malvinas");
-		est.setEstado(estado);		
+		est.setEstado(FactoryDAO.getEstadoEstacionDAO().buscaPorID(1));		
 		est.setUbicacion(-34.927494, -57.961193);
 		est.setCantBiciletas(15);
 		est.setCantEstacionamientos(30);
@@ -29,7 +26,7 @@ public class TestEstacionyBicicleta {
 		FactoryDAO.getEstacionDAO().persistir(est);
 		//creo una bicicleta
 		Bicicleta bici = new Bicicleta();
-		bici.setPatente("DEF123");
+		bici.setPatente("ABC123");
 		bici.setFechaIngreso(new Date());		
 		bici.setEstadoActual(FactoryDAO.getEstadoBicicletaDAO().buscaPorID(1));
 		bici.setUbicacionActual(est);

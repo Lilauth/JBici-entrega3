@@ -15,6 +15,7 @@ public class TestPrestamo {
 	
 	@Test
 	public void testCRUD() throws Exception {
+		//genero un prestamo
 		PrestamoActual pa = new PrestamoActual();
 		Bicicleta bici = FactoryDAO.getBicicletaDAO().buscaPorID(1);
 		pa.setBicicleta(bici);
@@ -26,7 +27,7 @@ public class TestPrestamo {
 		FactoryDAO.getPrestamoActualDAO().persistir(pa);
 		//FactoryDAO.getBicicletaDAO().persistir(bici);
 		
-		assertEquals(3, FactoryDAO.getPrestamoActualDAO().contarElementos());
+		assertEquals(1, FactoryDAO.getPrestamoActualDAO().contarElementos());
 	}
 
 }
