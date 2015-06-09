@@ -12,11 +12,11 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Bicicleta {
 	@Id @GeneratedValue
-	private long id;
-	
+	private long id;	
 	private Date fechaIngreso;
 	private String patente;
-	@ManyToOne(optional = false)
+	
+	@ManyToOne(optional = true)
 	@JoinColumn(name="idEstacion")
 	private Estacion ubicacionActual;
 	

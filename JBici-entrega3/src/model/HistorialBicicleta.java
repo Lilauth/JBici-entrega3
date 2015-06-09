@@ -2,15 +2,45 @@ package model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class HistorialBicicleta {
+	@Id @GeneratedValue
+	private long id;
 	
+	@ManyToOne(optional = false)
+	@JoinColumn(name="idEstadoBicicleta")
 	private EstadoBicicleta estado;
+	
 	private Date fechaYHora;
+	
+	@ManyToOne(optional = false)
+	@JoinColumn(name="idEstacion")
 	private Estacion estacion;
+	
+	@ManyToOne(optional = false)
+	@JoinColumn(name="idUsuario")
 	private Usuario responsable;
+	
+	public HistorialBicicleta(){}
+	
+	/*getters and setters*/
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	
 	public EstadoBicicleta getEstado() {
 		return estado;
 	}
+	
 	public void setEstado(EstadoBicicleta estado) {
 		this.estado = estado;
 	}

@@ -10,7 +10,8 @@
 	<class>model.EstadoEstacion</class>
 	<class>model.EstadoBicicleta</class>
 	<class>model.Estacion</class>
-	<class>model.Bicicleta</class>					
+	<class>model.Bicicleta</class>
+	<class>model.HistorialBicicleta</class>					
 	
 	<properties>
 		<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
