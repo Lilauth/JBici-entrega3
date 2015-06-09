@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Bicicleta {
@@ -20,17 +23,19 @@ public class Bicicleta {
 	@JoinColumn(name="idEstacion")
 	private Estacion ubicacionActual;
 	
-	/**private PrestamoActual prestamoActual;*/
-	/**
-	private ArrayList<PrestamoHistorico> prestamosHistoricos;
-	private ArrayList<HistorialBicicleta> historial;*/
+	@OneToOne(optional = true)	
+	private PrestamoActual prestamoActual;
+	
+	/**private ArrayList<PrestamoHistorico> prestamosHistoricos;*/
+	@OneToMany(mappedBy="bicicleta")
+	private List<HistorialBicicleta> historial;
 	
 	@ManyToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "idEstadoBicicleta")
 	private EstadoBicicleta estadoActual;
 	
 	/*getters and setters*/
-	/**public ArrayList<HistorialBicicleta> getHistorial() {
+	public List<HistorialBicicleta> getHistorial() {
 		return historial;
 	}
 	public void agregarHistorial(HistorialBicicleta historial) {
@@ -42,7 +47,7 @@ public class Bicicleta {
 	}
 	public void setPrestamoActual(PrestamoActual prestamoActual) {
 		this.prestamoActual = prestamoActual;
-	}*/
+	}
 	
 	public EstadoBicicleta getEstadoActual() {
 		return estadoActual;

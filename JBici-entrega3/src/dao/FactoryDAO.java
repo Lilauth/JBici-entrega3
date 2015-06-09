@@ -6,6 +6,7 @@ import model.EstadoBicicleta;
 import model.EstadoEstacion;
 import model.HistorialBicicleta;
 import model.Perfil;
+import model.PrestamoActual;
 import model.Usuario;
 import connection.Conexion;
 
@@ -37,6 +38,10 @@ public class FactoryDAO {
 	
 	public static IBaseDAO<HistorialBicicleta> getHistorialBicicletaDAO(){
 		return new BaseDAOImpl<HistorialBicicleta>(HistorialBicicleta.class, Conexion.getEntityManager());
+	}
+	
+	public static IBaseDAO<PrestamoActual> getPrestamoActualDAO(){
+		return new BaseDAOImpl<PrestamoActual>(PrestamoActual.class, Conexion.getEntityManager());
 	}
 
 }

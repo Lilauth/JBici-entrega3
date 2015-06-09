@@ -27,8 +27,22 @@ public class HistorialBicicleta {
 	@JoinColumn(name="idUsuario")
 	private Usuario responsable;
 	
-	public HistorialBicicleta(){}
+	@ManyToOne(optional = true)
+	@JoinColumn(name="idBicicleta")
+	private Bicicleta bicicleta;
 	
+	public HistorialBicicleta(){}
+			
+	public Bicicleta getBicicleta() {
+		return bicicleta;
+	}
+
+	public void setBicicleta(Bicicleta bicicleta) {
+		this.bicicleta = bicicleta;
+	}
+
+
+
 	/*getters and setters*/
 	public long getId() {
 		return id;

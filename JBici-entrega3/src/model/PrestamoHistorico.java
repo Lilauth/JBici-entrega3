@@ -2,10 +2,22 @@ package model;
 
 import java.util.Date;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+@DiscriminatorValue("H")
 public class PrestamoHistorico extends Prestamo {
 	
 	private Date fechaHoraDevolucion;
+	@ManyToOne
+	@JoinColumn(name = "idEstacionDevolucion")
 	private Estacion estacionDevolucion;
+	
+	public PrestamoHistorico(){}
+	/**
 	private Denuncia denuncia;
 
 	public Denuncia getDenuncia() {
@@ -14,7 +26,7 @@ public class PrestamoHistorico extends Prestamo {
 
 	public void setDenuncia(Denuncia denuncia) {
 		this.denuncia = denuncia;
-	}
+	}*/
 
 	public Estacion getEstacionDevolucion() {
 		return estacionDevolucion;

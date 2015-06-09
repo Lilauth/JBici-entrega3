@@ -7,7 +7,6 @@ import java.util.Date;
 
 import model.Bicicleta;
 import model.Estacion;
-import model.EstadoBicicleta;
 import model.EstadoEstacion;
 
 import org.junit.Test;
@@ -30,10 +29,9 @@ public class TestEstacionyBicicleta {
 		FactoryDAO.getEstacionDAO().persistir(est);
 		//creo una bicicleta
 		Bicicleta bici = new Bicicleta();
-		bici.setPatente("ABC123");
-		bici.setFechaIngreso(new Date());
-		EstadoBicicleta estadoBici = FactoryDAO.getEstadoBicicletaDAO().buscaPorID(1); //operativa
-		bici.setEstadoActual(estadoBici);
+		bici.setPatente("DEF123");
+		bici.setFechaIngreso(new Date());		
+		bici.setEstadoActual(FactoryDAO.getEstadoBicicletaDAO().buscaPorID(1));
 		bici.setUbicacionActual(est);
 		
 		ArrayList<Bicicleta> lista = new ArrayList<Bicicleta>();
