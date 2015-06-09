@@ -9,4 +9,17 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <!--
+  <persistence-context-ref>
+            <description>
+                Persistence context for the inventory management application.
+            </description>
+            <persistence-context-ref-name>
+                persistence/JBici
+            </persistence-context-ref-name>
+            <persistence-unit-name>
+                jyaa  Defined in persistence.xml 
+            </persistence-unit-name>
+        </persistence-context-ref>
+  -->
 </web-app>
