@@ -1,12 +1,14 @@
 package dao;
 
 import model.Bicicleta;
+import model.Denuncia;
 import model.Estacion;
 import model.EstadoBicicleta;
 import model.EstadoEstacion;
 import model.HistorialBicicleta;
 import model.Perfil;
 import model.PrestamoActual;
+import model.PrestamoHistorico;
 import model.Usuario;
 import connection.Conexion;
 
@@ -42,6 +44,14 @@ public class FactoryDAO {
 	
 	public static IBaseDAO<PrestamoActual> getPrestamoActualDAO(){
 		return new BaseDAOImpl<PrestamoActual>(PrestamoActual.class, Conexion.getEntityManager());
+	}
+	
+	public static IBaseDAO<PrestamoHistorico> getPrestamoHistoricoDAO(){
+		return new BaseDAOImpl<PrestamoHistorico>(PrestamoHistorico.class, Conexion.getEntityManager());
+	}
+	
+	public static IBaseDAO<Denuncia> getDenunciaDAO(){
+		return new BaseDAOImpl<Denuncia>(Denuncia.class, Conexion.getEntityManager());
 	}
 
 }

@@ -6,6 +6,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 @DiscriminatorValue("H")
@@ -17,7 +18,7 @@ public class PrestamoHistorico extends Prestamo {
 	private Estacion estacionDevolucion;
 	
 	public PrestamoHistorico(){}
-	/**
+	@OneToOne(optional = true, mappedBy="prestamoOrigen")
 	private Denuncia denuncia;
 
 	public Denuncia getDenuncia() {
@@ -26,7 +27,7 @@ public class PrestamoHistorico extends Prestamo {
 
 	public void setDenuncia(Denuncia denuncia) {
 		this.denuncia = denuncia;
-	}*/
+	}
 
 	public Estacion getEstacionDevolucion() {
 		return estacionDevolucion;
@@ -44,13 +45,12 @@ public class PrestamoHistorico extends Prestamo {
 		this.fechaHoraDevolucion = fechaHoraDevolucion;
 	}
 	
-	public PrestamoHistorico asignar(PrestamoActual p){
-		PrestamoHistorico ph = new PrestamoHistorico();
-		ph.setBicicleta(p.getBicicleta());
-		ph.setEstacion(p.getEstacion());
-		ph.setFechaHora(p.getFechaHora());
-		ph.setUsuario(p.getUsuario());
-		return ph;
+	public void asignar(PrestamoActual p){
+		//PrestamoHistorico ph = new PrestamoHistorico();
+		this.setBicicleta(p.getBicicleta());
+		this.setEstacion(p.getEstacion());
+		this.setFechaHora(p.getFechaHora());
+		this.setUsuario(p.getUsuario());		
 	}
 
 }

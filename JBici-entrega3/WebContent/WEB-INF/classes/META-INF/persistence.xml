@@ -14,7 +14,8 @@
 	<class>model.HistorialBicicleta</class>
 	<class>model.Prestamo</class>	
 	<class>model.PrestamoActual</class>	
-	<class>model.PrestamoHistorico</class>						
+	<class>model.PrestamoHistorico</class>
+	<class>model.Denuncia</class>						
 	
 	<properties>
 		<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
