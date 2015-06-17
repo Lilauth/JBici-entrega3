@@ -54,7 +54,7 @@ public class BaseDAOImpl<T> implements IBaseDAO<T> {
 	        em.merge(obj);
 	        em.getTransaction().commit();
 		} catch (Exception e) {
-			System.out.println("Error de SQL: "+e.getMessage());
+			System.out.println("Error SQL: "+e.getMessage());
 		}
 		
 	}
@@ -66,7 +66,7 @@ public class BaseDAOImpl<T> implements IBaseDAO<T> {
 			em.remove(obj);
 			em.getTransaction().commit();
 		} catch (Exception e) {
-			System.out.println("Error de SQL: " + e.getMessage());
+			System.out.println("Error SQL: " + e.getMessage());
 		}
 		
 	}
@@ -80,7 +80,7 @@ public class BaseDAOImpl<T> implements IBaseDAO<T> {
 			query.executeUpdate();
 			em.getTransaction().commit();
 		} catch (Exception e) {
-			System.out.println("Error de SQL: " + e.getMessage());
+			System.out.println("Error SQL: " + e.getMessage());
 		}
 		
 	}
